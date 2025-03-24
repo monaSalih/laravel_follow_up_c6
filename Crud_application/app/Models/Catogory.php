@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class Catogory extends Model
@@ -12,4 +13,8 @@ class Catogory extends Model
         'status',
         'is_deleted',
     ];
+
+    public function product(){
+        return $this->hasMany(Product::class);
+    }
 }

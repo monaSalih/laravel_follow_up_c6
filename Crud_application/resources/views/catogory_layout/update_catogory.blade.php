@@ -15,7 +15,7 @@
         <label for="status" class="form-label">Status</label>
         <select class="form-control" name="status" id="status">
             <option value="activate" {{$catogory_data->status == 'activate'?'selected':''}} >Activate</option>
-            <option value="inactive" {{$catogory_data->status=='inactivate'?'selected':''}}>Inactive</option>
+            <option value="inactivate" {{$catogory_data->status=='inactivate'?'selected':''}}>Inactive</option>
         </select>
     </div>
 

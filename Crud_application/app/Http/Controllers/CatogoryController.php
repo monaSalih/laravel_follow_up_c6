@@ -69,12 +69,12 @@ class CatogoryController extends Controller
     {
         // dd($id,$request);
         $catogry_row=Catogory::findOrfail($id);
-        // $catogry_row->update([
-        // 'name'=>$request->name,
-        // 'photo'=>$request->photo,
-        // 'status'=>$request->status,
-        // ]);
-        // $catogry_row->save();
+        $catogry_row->update([
+        'name'=>$request->name,
+        'photo'=>$request->photo,
+        'status'=>$request->status,
+        ]);
+        $catogry_row->save();
         return  redirect()->route('welcome')->with('status','catogory update successfully');
     }
 
