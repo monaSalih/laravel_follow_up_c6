@@ -12,7 +12,8 @@ class CatogoryController extends Controller
      */
     public function index()
     {
-        //
+        $catogories = Catogory::where('is_deleted', 0)->get();
+        return view('welcome', compact('catogories'));
     }
 
     /**
@@ -20,6 +21,7 @@ class CatogoryController extends Controller
      */
     public function create()
     {
+       return view('catogory_layout.create_new_catogory');
         //
     }
 
@@ -28,7 +30,16 @@ class CatogoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $add_catogory=Catogory::create([
+            'name'=>$request->name,
+            'photo'=>$request->photo,
+            'status'=>$request->status,
+        ]);
+        $add_catogory->save();
+
+        return  redirect()->route('welcome')->with('status','catogory add successfully');
+
     }
 
     /**
@@ -42,24 +53,45 @@ class CatogoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Catogory $catogory)
+    public function edit($id)
     {
-        //
+        //    dd($id);
+        $catogory_data=Catogory::findOrfail($id);
+        // dd($catogory_data);
+        return view('catogory_layout.update_catogory',compact('catogory_data'));
+    
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Catogory $catogory)
+    public function update(Request $request, $id)
     {
-        //
+        // dd($id,$request);
+        $catogry_row=Catogory::findOrfail($id);
+        // $catogry_row->update([
+        // 'name'=>$request->name,
+        // 'photo'=>$request->photo,
+        // 'status'=>$request->status,
+        // ]);
+        // $catogry_row->save();
+        return  redirect()->route('welcome')->with('status','catogory update successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Catogory $catogory)
+    public function destroy($id)
     {
+        $catogory_delete_item_data=Catogory::findOrfail($id);
+        // dd($catogory_delete_item_data);
+        $catogory_delete_item_data->update([
+            'is_deleted'=>1,
+        ]);
+        $catogory_delete_item_data->save();
+        
+        return  redirect()->route('welcome')->with('status','catogory delete successfully');
+
         //
     }
 }

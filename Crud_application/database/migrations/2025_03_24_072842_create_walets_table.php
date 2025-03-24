@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catogories', function (Blueprint $table) {
+        Schema::create('walets', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('photo');
-            $table->enum('status',['activate','inactivate']);
-            $table->integer('is_deleted')->default(0);
-            //add coulmn
-            $table->string('discription');
+            $table->unsignedBigInteger('user_id');
+            $table->integer('balance');
             $table->timestamps();
+
+            $table->foregin('user_id')->references('id')->on('catogories')->onDelete('cascade');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catogories');
+        Schema::dropIfExists('walets');
     }
 };

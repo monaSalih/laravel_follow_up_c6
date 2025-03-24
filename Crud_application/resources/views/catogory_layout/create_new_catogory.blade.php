@@ -1,8 +1,8 @@
 
 @extends('layouts.template')
 @section('contant')
-<form class="container mt-5" action="" method="post" >
-
+<form class="container mt-5" action="{{route('new_catogry')}}" method="post" >
+@csrf
   <div class="mb-3">
     <label for="exampleInputName" class="form-label">Name</label>
     <input type="input" class="form-control" id="exampleInputName" name="name">
