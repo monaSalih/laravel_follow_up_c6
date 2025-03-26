@@ -7,6 +7,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//middleware
+Route::middleware('isAdmin')->group(function(){
+
+    Route::get('/dashboard_page', function () {
+        return view('admin_page');
+    })->name('dashboard_page');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
