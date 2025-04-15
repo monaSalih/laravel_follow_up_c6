@@ -1,24 +1,18 @@
 <?php
-// test
+
 namespace App\Http\Controllers;
 
-use App\Models\Walet;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class WaletController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products=[
-            ['name'=>'laptop', 'price'=>1000],
-            ['name'=>'iphone', 'price'=>500],
-            ['name'=>'screen', 'price'=>2000],
-            
-        ];
-        return view('walet', compact('products'));
+        //
     }
 
     /**
@@ -40,7 +34,7 @@ class WaletController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Walet $walet)
+    public function show(Category $category)
     {
         //
     }
@@ -48,7 +42,7 @@ class WaletController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Walet $walet)
+    public function edit(Category $category)
     {
         //
     }
@@ -56,7 +50,7 @@ class WaletController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Walet $walet)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -64,7 +58,7 @@ class WaletController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Walet $walet)
+    public function destroy(Category $category)
     {
         //
     }

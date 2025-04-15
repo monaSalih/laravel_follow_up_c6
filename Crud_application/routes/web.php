@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WaletController;
 use App\Http\Controllers\CatogoryController;
 
 Route::get('/',[CatogoryController::class,'index'])->name('welcome');
-
+// 
+Route::get('/walet',[WaletController::class,'index']);
 // create new catogry
 Route::get('/create_data',[CatogoryController::class,'create'])->name('create_data');
 
