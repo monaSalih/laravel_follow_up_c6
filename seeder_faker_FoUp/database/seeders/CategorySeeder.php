@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,7 @@ class CategorySeeder extends Seeder
     //     'description'=>'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..',
     //     'is_active'=>(bool)rand(0,1),
     //    ]);
+    Category::factory(10)->create();
 
     }
 }
